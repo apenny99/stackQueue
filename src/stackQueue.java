@@ -23,7 +23,7 @@ public class stackQueue<E,T> {
         return toBottom(s);
 
     }
-    
+
     private void reset(){
         while(temp.isEmpty()==false){
             main.push(temp.pop());
@@ -34,5 +34,12 @@ public class stackQueue<E,T> {
         reset();
         length--;
         return temp;
+    }
+
+    public boolean isEmpty(){
+        if (main.isEmpty()&&temp.isEmpty()&&length==0){
+            return true;
+        }
+        return false;
     }
 }
