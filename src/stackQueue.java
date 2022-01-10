@@ -14,4 +14,25 @@ public class stackQueue<E,T> {
         
 
     }
+
+    private T toBottom(StackNode s){
+        if(s.isEmpty()){
+            return (T) temp.pop();
+        }
+        temp.push(s.pop());
+        return toBottom(s);
+
+    }
+    
+    private void reset(){
+        while(temp.isEmpty()==false){
+            main.push(temp.pop());
+        }
+    }
+    public T deQueue(){
+        T temp=toBottom(main);
+        reset();
+        length--;
+        return temp;
+    }
 }
