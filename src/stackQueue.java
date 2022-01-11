@@ -42,4 +42,8 @@ public class stackQueue<E,T> {
         }
         return false;
     }
+    public int size(){
+        return length;
+    }
+    
 }
