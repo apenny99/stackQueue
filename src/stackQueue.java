@@ -65,11 +65,37 @@ public class stackQueue<E,T> {
         return length;
     }
 
+    public T peek(){
+        if(length==0){
+            tmp=null;
+        }
+        if(length==1){
+            tmp=(T)stack1.peek();
+        }
+        if(length>1){
+
+            for(int a=1;a<length;a++){
+                stack2.push(stack1.pop());
+
+            }
+
+            tmp=(T)stack1.peek();
+
+            for(int i=1;i<length;i++){
+                stack1.push(stack2.pop());
+            }
+
+
+        }
+
+        return tmp;
+    }
+
     public static void main(String[] args) {
 
 
         stackQueue s = new stackQueue();
-        
+
 
         s.enqueue("one");
         s.enqueue(2);
@@ -79,6 +105,10 @@ public class stackQueue<E,T> {
         s.enqueue(5);
         s.enqueue(6);
         s.enqueue("seven");
+
+        
+
+
 
 
 
