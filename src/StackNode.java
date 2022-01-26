@@ -47,6 +47,9 @@ public class StackNode<E, T> {
 
 
     public T peek(){
+        if (length==0){
+            return null;
+        }
         return (T) topNode(root).getValue();//return the value of the top node in the stack casted to a T type
     }
 
@@ -66,6 +69,12 @@ public class StackNode<E, T> {
         if (length==0){
             return null;
         }
+        if (length==1){
+            T tmp= (T)root.getValue();
+            root.setDataType(null);
+            length--;
+            return tmp;
+        }
         node temp = topNode(root);
         node temp2 = topNode(root).getNext();//gets a temp node at the second to top position (will be top when the method finishes)
         temp2.setPrev(null);
@@ -74,4 +83,14 @@ public class StackNode<E, T> {
 
     }
 
+
+    public static void main(String[] args) {
+//        StackNode n = new StackNode();
+//        n.push("a");
+//        n.push(2);
+//        n.push("thth");
+//        n.push(4);
+//        n.pop();
+//        System.out.println(n.pop());
+    }
 }
